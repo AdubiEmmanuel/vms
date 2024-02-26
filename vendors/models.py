@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Vendor(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     company_name = models.CharField(max_length=200)
     type_of_software = models.CharField(max_length=200, default=False)
     contact_telephone_no = models.CharField(max_length=200, default=False)
@@ -35,7 +35,7 @@ class Vendor(models.Model):
         null=True
     )
     additional_info = models.CharField(max_length=500, default=False)
-    document_to_attach = models.CharField(max_length=3, default=False)
+    document_to_attach = models.FileField(max_length=3, default=False)
     
     
     def __str__(self):
