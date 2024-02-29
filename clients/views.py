@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib import auth
 from django.contrib.auth.models import User
 from .models import Client 
-from .forms import ClientForm
+from .forms import CustomUserCreationForm
 from django.shortcuts import render, redirect
 from django.views import View
 
@@ -27,12 +27,12 @@ class clientRegister(View):
     template_name = 'Clients/Auth/Signup.html'
 
     def get(self, request):
-        form = ClientForm()
+        form = CustomUserCreationForm()
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        client_dashboard = 'client/dashboard/index.html'
-        form = ClientForm(request.POST)
+        client_dashboard = 'dashboard'
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             # You can add additional logic here, e.g., redirecting to a success page

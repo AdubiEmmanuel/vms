@@ -4,20 +4,35 @@ from django.forms.widgets import TextInput, PasswordInput
 from django.contrib.auth.forms import  UserCreationForm
 from .models import Client 
 
-class ClientForm(UserCreationForm):
-    phone_number =forms.CharField(max_length=200)
-    address =forms.CharField(max_length=200, widget=TextInput(attrs={'class:': 'form-control'}))
-    country =forms.CharField(max_length=200, widget=TextInput(attrs={'class:': 'form-control'}))
-    nationality =forms.CharField(max_length=200, widget=TextInput(attrs={'class:': 'form-control'}))
-    class Meta:
-        model = User 
-        fields = ('first_name', 'last_name', 'email','phone_number', 'address', 'country', 'nationality')
+class CustomUserCreationForm(UserCreationForm):
+    phone_number = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    address = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    country = forms.CharField(max_length=500, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    nationality = forms.CharField(max_length=500, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label='Email address', widget=forms.EmailInput(attrs={'class': 'form-control'}))
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
         widgets = {
-                'first_name': TextInput(attrs={'class': 'form-control'}),
-                'last_name': TextInput(attrs={'class': 'form-control'}),
-                'email': TextInput(attrs={'class': 'form-control'}),
-                'phone_number': TextInput(attrs={'class': 'form-control'}),
-                'address': TextInput(attrs={'class': 'form-control'}),
-            }
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
+            'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+            client = Client.objects.create(
+                user=user,
+                phone_number=self.cleaned_data['phone_number'],
+                address=self.cleaned_data['address'],
+                country=self.cleaned_data['country'],
+                nationality=self.cleaned_data['nationality']
+            )
+        return user
+
 
         

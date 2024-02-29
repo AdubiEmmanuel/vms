@@ -9,6 +9,14 @@ class Client(models.Model):
     address = models.CharField(max_length=100, default=False)
     country = models.CharField(max_length=500)
     nationality = models.CharField(max_length=500)
+    username = None
+    email = models.EmailField(('email address'), unique=True, default=False)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+    
+    def __str__(self):
+        return self.user.username 
 #     Name 
 # Email 
 # Phone number 

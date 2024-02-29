@@ -1,26 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-<section style="background:#364170;">
+{% load widget_tweaks %}
+<section style="background:#364170; height:100%;">
     <div class="container" >
        <section class="vh-100" style="background-color: #2f3861;">
-      <div class="container py-5 h-100">
+      <div class="container-fluid py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-xl-8 col-lg-8 col-md-8 col-8 mx-5 p-5">
             <div class="card" style="border-radius: 1rem;">
                <form method="post" action="{% url 'register' %}"  class="p-5 ">
-                    {% csrf_token %}
-                {% for field in form %}
+                   {% csrf_token %}
+                   {% for field in form %}
                     <div class="fieldWrapper">
                         {{ field.errors }}
                       <div class="form-label">
                             {{ field.label_tag }}
                       </div>
                       <div >
+                        {% render_field field.phone_number  %}
                           {{ field }}
                       </div>   
                     </div>
                 {% endfor %}
-                <button class="btn btn-primary btn-lg" type="submit">Register</button>
+                <button class="btn btn-primary btn-lg my-5 w-100" type="submit">Register</button>
                 </form>
               </div>
             </div>
