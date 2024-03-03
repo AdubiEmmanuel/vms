@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 {% load widget_tweaks %}
-<section style="background:#364170; height:100%;">
+<section style="background:#364170; max-height:100%; background-size:cover;">
     <div class="container" >
-       <section class="vh-100" style="background-color: #2f3861;">
+       <section class="" style="background-color: #2f3861;">
       <div class="container-fluid py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="row d-flex justify-content-center align-items-center ">
           <div class="col-xl-8 col-lg-8 col-md-8 col-8 mx-5 p-5">
             <div class="card" style="border-radius: 1rem;">
-               <form method="post" action="{% url 'register' %}"  class="p-5 ">
+               <form method="post" action="{% url 'c_auth_register' %}"  class="p-5 ">
                    {% csrf_token %}
                    {% for field in form %}
                     <div class="fieldWrapper">

@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views 
+from . views import VendorRegister
 
 urlpatterns = [
-    path('login/', views.vendorLogin, name='vendorLogin'),
-    path('register/', views.vendorRegister, name='vendorRegister'),
+    path('v_auth/login/', views.vendorLogin, name='v_auth_login'),
+    path('v_auth/register/', VendorRegister.as_view(), name='v_auth_register'),
 ]
