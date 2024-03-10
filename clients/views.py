@@ -32,7 +32,7 @@ class clientRegister(View):
 
     def post(self, request):
         client_dashboard = 'dashboard'
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST or None)
         if form.is_valid():
             form.save()
             # You can add additional logic here, e.g., redirecting to a success page

@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1>Dashboard</h1>
-</body>
-</html>
+
+{% extends 'base.html' %}
+{% block content %}
+  
+
+  
+    {% comment %} Navbar starts here {% endcomment %}
+
+ 
+{% include 'client_sidebar.html' %}
+    {% comment %} navbar ends here {% endcomment %}
+
+    <!-- Hero sections starts here -->
+   
+    {% comment %} {% include 'Sidebar.html' %} {% endcomment %}
+    <!-- hero section ends here -->
+
+
+
+{% endblock content %}

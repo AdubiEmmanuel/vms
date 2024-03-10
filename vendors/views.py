@@ -27,7 +27,7 @@ class VendorRegister(View):
 
     def post(self, request):
         vendor_dashboard = 'dashboard'
-        form = VendorForm(request.POST)
+        form = VendorForm(request.POST or None)
         if form.is_valid():
             form.save()
             # You can add additional logic here, e.g., redirecting to a success page

@@ -9,6 +9,7 @@
           <div class="col-xl-8 col-lg-8 col-md-8 col-8 mx-5 p-5">
             <div class="card" style="border-radius: 1rem;">
                <form method="post" action="{% url 'c_auth_register' %}"  class="p-5 ">
+                <h3>Client Register</h3>
                    {% csrf_token %}
                    {% for field in form %}
                     <div class="fieldWrapper">

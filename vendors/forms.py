@@ -30,7 +30,7 @@ class VendorForm(UserCreationForm):
         ('cloud_enabled', 'cloud_enabled'),
     )
     cloud_type = forms.ChoiceField(label='', choices=cloud_options, widget=forms.Select(attrs={'class':'form-control'}))
-    additional_info = forms.CharField(required=False, max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    additional_info = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     document_to_attach = forms.FileField(widget=forms.FileInput(attrs={'class': 'form-control'}))
 
     class Meta(UserCreationForm.Meta):

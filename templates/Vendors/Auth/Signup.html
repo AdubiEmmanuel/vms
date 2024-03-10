@@ -8,7 +8,9 @@
         <div class="row d-flex justify-content-center align-items-center ">
           <div class="col-xl-8 col-lg-8 col-md-8 col-8 mx-5 p-5">
             <div class="card" style="border-radius: 1rem;">
+              
                <form method="post" action="{% url 'v_auth_register' %}"  class="p-5 ">
+                <h3>Vendor Register</h3>
                    {% csrf_token %}
                    {% for field in form %}
                     <div class="fieldWrapper">
