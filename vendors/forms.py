@@ -5,34 +5,9 @@ from django.contrib.auth.forms import  UserCreationForm
 from .models import Vendor 
 
 class VendorForm(UserCreationForm):
-    company_name = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    type_of_software = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    contact_telephone_no = forms.CharField(max_length=500, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    vendor_id = forms.CharField(max_length=500, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    website = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    product_category = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    description = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    software_name = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    company_established = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    no_of_employees = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     location_countries = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     location_cities = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
     address = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    internal_professional_services = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    last_demo_date = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    business_areas = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    modules = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    financial_services_client_types = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    cloud_options = (
-        ('select_cloud_type', 'select_cloud_type'),
-        ('cloud_native', 'cloud_native'),
-        ('cloud_based', 'cloud_based'),
-        ('cloud_enabled', 'cloud_enabled'),
-    )
-    cloud_type = forms.ChoiceField(label='', choices=cloud_options, widget=forms.Select(attrs={'class':'form-control'}))
-    additional_info = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    document_to_attach = forms.FileField(widget=forms.FileInput(attrs={'class': 'form-control'}))
-
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
