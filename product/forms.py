@@ -11,7 +11,7 @@ cloud_options = (
         ('cloud_enabled', 'cloud_enabled'),
     )
 
-class ProductForm(UserCreationForm):
+class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
@@ -32,7 +32,7 @@ class ProductForm(UserCreationForm):
                     'modules':forms.TextInput(attrs={'class': 'form-control'}),
                     'financial_services_client_types': forms.TextInput(attrs={'class': 'form-control'}),
                     'additional_info':forms.TextInput(attrs={'class': 'form-control'}),
-                    'cloud_type' :forms.ChoiceField(choices=cloud_options, widget=forms.Select(attrs={'class':'form-control'})),
+                    # 'cloud_type' :forms.ChoiceField(choices=cloud_options, widget=forms.Select(attrs={'class':'form-control'})),
                     'document_to_attach':forms.FileField(widget=forms.FileInput(attrs={'class': 'form-control'}))
         }
                     

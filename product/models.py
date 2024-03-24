@@ -31,4 +31,7 @@ class Product(models.Model):
         null=True
     )
     additional_info = models.CharField(max_length=500, default=False)
-    document_to_attach = models.FileField(max_length=3, default=False)
+    # document_to_attach = models.FileField(max_length=3, default=False)
+    
+    def __str__(self):
+        return self.company_name

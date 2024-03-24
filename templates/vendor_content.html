@@ -213,11 +213,11 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    {% comment %} <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    </div> {% endcomment %}
 
                     <!-- Content Row -->
                     <div class="container my-5">
@@ -226,13 +226,13 @@
                                     {% include 'vendor_dashboard.html' %}
                                 </div>
                                 <div class="tab-pane fade show " id="create" role="tabpanel" aria-labelledby="nav-create-tab">
-                                    {% include 'vendor_products.html' %}
+                                    {% include 'product_create.html' %}
                                 </div>
                                 <div class="tab-pane fade show " id="view" role="tabpanel" aria-labelledby="nav-view-tab">
-                                    {% include 'vendor_view_products.html' %}
+                                    {% include 'product_list.html' %}
                                 </div>
-                                <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="nav-update-tab">Profile component</div>
-                                <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="nav-view-tab">Contact</div>
+                                {% comment %} <div class="tab-pane fade" id="update" role="tabpanel" aria-labelledby="nav-update-tab">Profile component</div>
+                                <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="nav-view-tab">Contact</div> {% endcomment %}
                             </div>
                         
                     </div>
@@ -242,8 +242,9 @@
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                   <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CitiStack 2024<span>Crafted with love by Kenny Oloyede | Alfred Bidokwu & Fakorede Timilehin</span>
+
                     </div>
                 </div>
             </footer>
